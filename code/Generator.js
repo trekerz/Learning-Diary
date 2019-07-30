@@ -2,12 +2,12 @@
  * 模仿generator实现
  * @param {Function} cb 需调用者实现的generator函数
  */
-function generator (cb: Function) {
+function generator(cb) {
     return (function () {
         // 状态记录
         const object = {
             next: 0,
-            stop: function () {}
+            stop: function () { }
         }
         return {
             next: function () {
