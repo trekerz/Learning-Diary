@@ -15,18 +15,18 @@
 function debounce(fn, wait, immediately) {
   let debouceTime
   return function() {
-    const callNow = !debouceTime
+    const freeNow = !debouceTime
     if (debouceTime) {
       clearTimeout(debouceTime)
     }
     debouceTime = setTimeout(() => {
-      if (!callNow && !immediately) {
+      if (!immediately) {
         fn()
       }
       clearTimeout(debouceTime)
       debouceTime = null
     }, wait || 500)
-    if (callNow) {
+    if (immediately && freeNow) {
       fn()
     }
   }
